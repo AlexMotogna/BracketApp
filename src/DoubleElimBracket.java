@@ -33,8 +33,13 @@ public class DoubleElimBracket extends Bracket {
 
     @Override
     public void computeMatches() {
-        computeMatchQueue(upperBracketTeams);
-        computeMatchQueue(lowerBracketTeams);
+        if (upperBracketTeams.size() == 1 && lowerBracketTeams.size() == 1) {
+            Match newMatch = new Match(upperBracketTeams.get(0), lowerBracketTeams.get(0));
+            matchQueue.add(newMatch);
+        } else {
+            computeMatchQueue(upperBracketTeams);
+            computeMatchQueue(lowerBracketTeams);
+        }
     }
 
     @Override
