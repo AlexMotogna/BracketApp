@@ -20,7 +20,6 @@ public class Main {
             int played = 0;
             while (played < matches.size()) {
                 int matchNb = in.nextInt();
-                //int teamNb = in.nextInt();
 
                 bracket.declareWinner(matches.get(matchNb), matches.get(matchNb).getTeam1());
             }
