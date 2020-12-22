@@ -44,7 +44,7 @@ public class SingleElimBracket extends Bracket {
         playedMatches.add(match);
     }
 
-    public List<Team> getLayerWinners(){
+    public List<Team> getLayerWinners() {
         return currentTeams;
     }
 }

@@ -14,7 +14,7 @@ public class DoubleElimBracket extends Bracket {
         numberOfLayers = numberOfTeams;
     }
 
-    public void computeMatchesAux(List<Team> winners) {
+    private void computeMatchQueue(List<Team> winners) {
         int remainingTeams = winners.size();
         Collections.shuffle(winners);
 
@@ -33,8 +33,8 @@ public class DoubleElimBracket extends Bracket {
 
     @Override
     public void computeMatches() {
-        computeMatchesAux(upperBracketTeams);
-        computeMatchesAux(lowerBracketTeams);
+        computeMatchQueue(upperBracketTeams);
+        computeMatchQueue(lowerBracketTeams);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class DoubleElimBracket extends Bracket {
         matchQueue.remove(match);
         playedMatches.add(match);
 
-        if(upperBracketTeams.contains(match.getLoser())){
+        if (upperBracketTeams.contains(match.getLoser())) {
             lowerBracketTeams.add(match.getLoser());
             upperBracketTeams.remove(match.getLoser());
         } else {

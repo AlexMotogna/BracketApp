@@ -7,17 +7,17 @@ public class Team {
     private Boolean status; // FALSE - eliminated , TRUE - not eliminated
     private int matchesWon;
 
-    public Team(int numberOfParticipants, String teamName){
+    public Team(int numberOfParticipants, String teamName) {
         this.teamName = teamName;
         status = true;
         matchesWon = 0;
     }
 
-    public void wonGame(){
+    public void wonGame() {
         this.matchesWon++;
     }
 
-    public void lostGame(){
+    public void lostGame() {
         this.status = false;
     }
 
@@ -25,11 +25,11 @@ public class Team {
         return teamName;
     }
 
-    public int getMatchesWon(){
+    public int getMatchesWon() {
         return matchesWon;
     }
 
-    public boolean getStatus(){
+    public boolean getStatus() {
         return status;
     }
 }

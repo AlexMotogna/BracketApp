@@ -1,6 +1,6 @@
-public class Coach extends Participant{
+public class Coach extends Participant {
 
-    public Coach(String name, int age){
+    public Coach(String name, int age) {
         super(name, age);
     }
 }
