@@ -33,6 +33,16 @@ public class DoubleElimBracket extends Bracket {
 
     @Override
     public void computeMatches() {
+
+        for (int i = 0; i < upperBracketTeams.size(); i++) {
+            System.out.print(upperBracketTeams.get(i).getTeamName());
+        }
+        System.out.println();
+        for (int i = 0; i < lowerBracketTeams.size(); i++) {
+            System.out.print(lowerBracketTeams.get(i).getTeamName());
+        }
+        System.out.println();
+
         if (upperBracketTeams.size() == 1 && lowerBracketTeams.size() == 1) {
             Match newMatch = new Match(upperBracketTeams.get(0), lowerBracketTeams.get(0));
             matchQueue.add(newMatch);

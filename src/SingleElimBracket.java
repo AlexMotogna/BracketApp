@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -31,7 +30,6 @@ public class SingleElimBracket extends Bracket {
                 matchQueue.add(newMatch);
             }
         }
-
     }
 
     @Override
@@ -44,7 +42,4 @@ public class SingleElimBracket extends Bracket {
         playedMatches.add(match);
     }
 
-    public List<Team> getLayerWinners() {
-        return currentTeams;
-    }
 }
