@@ -16,28 +16,30 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 400);
 
-        JPanel panel1 = new JPanel();
+        JPanel startPanel = new JPanel();
+        JPanel numberSelectPanel = new JPanel();
+        JPanel elimSelectPanel = new JPanel();
+
 
         SpinnerModel model = new SpinnerNumberModel(4, 4, 32, 1);
         JSpinner spinner = new JSpinner(model);
-        panel1.add(spinner);
-
+        numberSelectPanel.add(spinner);
         JButton submitBtn = new JButton("Submit");
-
-        JLabel l = new JLabel("Label1 ");
-        panel1.add(l);
-        panel1.add(submitBtn);
+        numberSelectPanel.add(submitBtn);
 
         JRadioButton singleButton = new JRadioButton("Single Elimination Bracket");
         singleButton.setSelected(true);
         JRadioButton doubleButton = new JRadioButton("Double Elimination Bracket");
         ButtonGroup group = new ButtonGroup();
-        panel1.add(singleButton);
-        panel1.add(doubleButton);
+        elimSelectPanel.add(singleButton);
+        elimSelectPanel.add(doubleButton);
         group.add(singleButton);
         group.add(doubleButton);
 
-        frame.setContentPane(panel1);
+        startPanel.setLayout(new BoxLayout(startPanel, BoxLayout.Y_AXIS));
+        startPanel.add(numberSelectPanel);
+        startPanel.add(elimSelectPanel);
+        frame.setContentPane(startPanel);
         frame.setVisible(true);
 
         submitBtn.addActionListener(new ActionListener() {
@@ -64,7 +66,8 @@ public class Main {
         JPanel teamNamePanel = new JPanel();
 
         JLabel teamNameLabel = new JLabel("Enter Team Name:");
-        JTextField textField = new JTextField("Enter:");
+        JTextField textField = new JTextField("");
+        textField.setColumns(10);
         JButton teamNameButton = new JButton("Submit");
         teamNamePanel.add(teamNameLabel);
         teamNamePanel.add(textField);
@@ -76,6 +79,7 @@ public class Main {
             public void actionPerformed(ActionEvent e) {
                 pressed = true;
                 helper.add(textField.getText());
+                textField.setText("");
                 System.out.println(helper);
             }
         });
@@ -110,23 +114,24 @@ public class Main {
 
                 JPanel panel = new JPanel();
 
-                JLabel l3 = new JLabel("Match " + j);
+                JLabel l3 = new JLabel(matches.get(j).toString());
                 panel.add(l3);
 
-                JButton btn1 = new JButton("Team1");
+                JButton btn1 = new JButton(matches.get(j).getTeam1().getTeamName());
                 DeclareWinnerListener team1Listener = new DeclareWinnerListener(bracket, matches.get(j), matches.get(j).getTeam1(), panel);
                 btn1.addActionListener(team1Listener);
                 panel.add(btn1);
 
-                JButton btn2 = new JButton("Team2");
+                JButton btn2 = new JButton(matches.get(j).getTeam2().getTeamName());
                 DeclareWinnerListener team2Listener = new DeclareWinnerListener(bracket, matches.get(j), matches.get(j).getTeam2(), panel);
                 btn2.addActionListener(team2Listener);
                 panel.add(btn2);
 
-                mainPanel.add(panel, BorderLayout.CENTER);
+                mainPanel.add(panel);
                 System.out.println(matches.get(j).toString());
             }
 
+            mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
             frame.setContentPane(mainPanel);
             frame.setVisible(true);
 
@@ -145,8 +150,9 @@ public class Main {
         System.out.println(playedMatches.get(playedMatches.size() - 1).toString());
 
         JPanel endPanel = new JPanel();
+
         JLabel winnerLabel = new JLabel("WINNER: " + playedMatches.get(playedMatches.size() - 1).getWinner().getTeamName());
-        endPanel.add(winnerLabel);
+        endPanel.add(winnerLabel, BorderLayout.PAGE_START);
 
         teams = bracket.getTeams();
         System.out.println(teams.size());
@@ -155,11 +161,10 @@ public class Main {
             endPanel.add(teamLabel);
         }
 
+        endPanel.setLayout(new BoxLayout(endPanel, BoxLayout.Y_AXIS));
         frame.setContentPane(endPanel);
         frame.setVisible(true);
 
-        //frame.setVisible(false);
-        //frame.dispose();
     }
 
 }
