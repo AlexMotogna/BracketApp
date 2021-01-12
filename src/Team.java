@@ -1,14 +1,11 @@
-import java.util.List;
-
 public class Team {
 
     private String teamName;
-    private List<Participant> team;
     private Boolean status; // FALSE - eliminated , TRUE - not eliminated
     private int matchesWon;
 
-    public Team(int numberOfParticipants, String teamName) {
-        this.teamName = teamName;
+    public Team() {
+        this.teamName = "Not yet entered";
         status = true;
         matchesWon = 0;
     }
@@ -19,6 +16,10 @@ public class Team {
 
     public void lostGame() {
         this.status = false;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
     }
 
     public String getTeamName() {

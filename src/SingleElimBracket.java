@@ -1,14 +1,15 @@
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class SingleElimBracket extends Bracket {
 
-    private List<Team> currentTeams;
+    private List<Team> currentTeams = new ArrayList<Team>();
     public int layer;
 
     public SingleElimBracket(int numberOfTeams) {
         this.numberOfTeams = numberOfTeams;
-        currentTeams = super.createTeams(this.numberOfTeams);
+        currentTeams.addAll(super.createTeams(this.numberOfTeams));
         layer = 0;
         numberOfLayers = (int) Math.floor(Math.log(numberOfTeams)) + 1;
     }

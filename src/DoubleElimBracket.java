@@ -4,13 +4,12 @@ import java.util.List;
 
 public class DoubleElimBracket extends Bracket {
 
-    List<Team> upperBracketTeams;
-    List<Team> lowerBracketTeams;
+    List<Team> upperBracketTeams = new ArrayList<Team>();
+    List<Team> lowerBracketTeams = new ArrayList<Team>();
 
     public DoubleElimBracket(int numberOfTeams) {
         this.numberOfTeams = numberOfTeams;
-        upperBracketTeams = createTeams(numberOfTeams);
-        lowerBracketTeams = new ArrayList<Team>();
+        upperBracketTeams.addAll(createTeams(numberOfTeams));
         numberOfLayers = numberOfTeams;
     }
 

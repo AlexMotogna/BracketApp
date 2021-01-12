@@ -11,7 +11,7 @@ public abstract class Bracket {
 
     public List<Team> createTeams(int numberOfTeams) {
         for (int i = 1; i <= numberOfTeams; i++) {
-            Team newTeam = new Team(0, "" + i);
+            Team newTeam = new Team();
             teams.add(newTeam);
         }
 
@@ -28,6 +28,10 @@ public abstract class Bracket {
 
     public List<Match> getPlayedMatches() {
         return playedMatches;
+    }
+
+    public List<Team> getTeams() {
+        return teams;
     }
 
 }
