@@ -65,6 +65,5 @@ public class DoubleElimBracket extends Bracket {
         }
 
         match.getWinner().wonGame();
-        match.getLoser().lostGame();
     }
 }

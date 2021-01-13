@@ -38,7 +38,6 @@ public class SingleElimBracket extends Bracket {
         match.setWinner(winner);
         currentTeams.remove(match.getLoser());
         match.getWinner().wonGame();
-        match.getLoser().lostGame();
         matchQueue.remove(match);
         playedMatches.add(match);
     }

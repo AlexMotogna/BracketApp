@@ -20,7 +20,6 @@ public class Main {
         JPanel numberSelectPanel = new JPanel();
         JPanel elimSelectPanel = new JPanel();
 
-
         SpinnerModel model = new SpinnerNumberModel(4, 4, 32, 1);
         JSpinner spinner = new JSpinner(model);
         numberSelectPanel.add(spinner);
@@ -77,10 +76,12 @@ public class Main {
         teamNameButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                pressed = true;
-                helper.add(textField.getText());
-                textField.setText("");
-                System.out.println(helper);
+                String name = textField.getText();
+                if (!name.isEmpty()) {
+                    helper.add(name);
+                    textField.setText("");
+                    pressed = true;
+                }
             }
         });
 
@@ -157,7 +158,7 @@ public class Main {
         teams = bracket.getTeams();
         System.out.println(teams.size());
         for (int k = 0; k < teams.size(); k++) {
-            JLabel teamLabel = new JLabel(teams.get(k).getTeamName() + ": " + teams.get(k).getMatchesWon());
+            JLabel teamLabel = new JLabel(teams.get(k).getTeamName() + ": " + teams.get(k).getMatchesWon() + " wins");
             endPanel.add(teamLabel);
         }
 
