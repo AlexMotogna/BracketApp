@@ -1,3 +1,5 @@
+package model;
+
 public class Team {
 
     private String teamName;
@@ -22,5 +24,13 @@ public class Team {
 
     public int getMatchesWon() {
         return matchesWon;
+    }
+
+    @Override
+    public String toString() {
+        return "Team{" +
+                "teamName='" + teamName + '\'' +
+                ", matchesWon=" + matchesWon +
+                '}';
     }
 }

@@ -1,16 +1,17 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class DoubleElimBracket extends Bracket {
+public class DoubleEliminationBracket extends Bracket {
 
-    List<Team> upperBracketTeams = new ArrayList<Team>();
-    List<Team> lowerBracketTeams = new ArrayList<Team>();
+    List<Team> upperBracketTeams = new ArrayList<>();
+    List<Team> lowerBracketTeams = new ArrayList<>();
 
-    public DoubleElimBracket(int numberOfTeams) {
+    public DoubleEliminationBracket(int numberOfTeams) {
         this.numberOfTeams = numberOfTeams;
         upperBracketTeams.addAll(createTeams(numberOfTeams));
-        numberOfLayers = numberOfTeams;
     }
 
     private void computeMatchQueue(List<Team> winners) {
@@ -32,13 +33,12 @@ public class DoubleElimBracket extends Bracket {
 
     @Override
     public void computeMatches() {
-
-        for (int i = 0; i < upperBracketTeams.size(); i++) {
-            System.out.print(upperBracketTeams.get(i).getTeamName());
+        for (Team upperBracketTeam : upperBracketTeams) {
+            System.out.print(upperBracketTeam.getTeamName());
         }
         System.out.println();
-        for (int i = 0; i < lowerBracketTeams.size(); i++) {
-            System.out.print(lowerBracketTeams.get(i).getTeamName());
+        for (Team lowerBracketTeam : lowerBracketTeams) {
+            System.out.print(lowerBracketTeam.getTeamName());
         }
         System.out.println();
 

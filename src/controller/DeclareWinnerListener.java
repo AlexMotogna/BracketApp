@@ -1,3 +1,9 @@
+package controller;
+
+import model.Bracket;
+import model.Match;
+import model.Team;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

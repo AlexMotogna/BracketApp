@@ -1,6 +1,9 @@
+package model;
+
 public class Match {
 
-    private Team team1, team2;
+    private final Team team1;
+    private final Team team2;
     private Team winner;
 
     public Match(Team team1, Team team2) {
@@ -15,14 +18,6 @@ public class Match {
 
     public Team getTeam2() {
         return team2;
-    }
-
-    public Team getTeamByIndex(int index) {
-        if (index == 1) {
-            return team1;
-        } else {
-            return team2;
-        }
     }
 
     public Team getWinner() {
